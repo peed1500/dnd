@@ -3,8 +3,8 @@ import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 public class character_sheet{
@@ -22,7 +22,7 @@ public class character_sheet{
     private JLabel lbl_hp;
     private JTextField txt_hp;
     private JButton okButton;
-    private JList list1;
+    private JList list_traits;
     private JLabel lbl_skill_str_ath;
     private JLabel lbl_skill_dex_acr;
     private JLabel lbl_skill_dex_soh;
@@ -45,7 +45,25 @@ public class character_sheet{
     private JLabel lbl_speed;
     private JLabel lbl_passive_perception;
     private JLabel lbl_name;
-    private JList list2;
+    private JList list_item;
+    private JLabel lbl_item_cp;
+    private JLabel lbl_item_sp;
+    private JLabel lbl_item_ep;
+    private JLabel lbl_item_gp;
+    private JLabel lbl_item_pp;
+    private JList list_armor;
+    private JList list_weapon;
+    private JLabel lbl_item_value;
+    private JLabel lbl_item_weight;
+    private JLabel lbl_item_magical;
+    private JLabel lbl_item_dmg;
+    private JLabel lbl_item_dmgType;
+    private JButton button_remove_item;
+    private JButton button_add_item;
+    private JButton button_armor_add;
+    private JButton button_armor_remove;
+    private JButton button_weapon_add;
+    private JButton button_weapon_remove;
 
     character ch = new character();
 
@@ -59,9 +77,10 @@ public class character_sheet{
         ch.size = "Small";
         ch.hp = 50;
         ch.name = "Petter Edlund";
+        ch.athletics = 13;
         Trait traits = new Trait();
         traits.name = "Luck";
-        traits.description = "This is a test";
+        traits.description = "Lets you reroll.";
         ch.traitsList.add(traits);
     }
 
@@ -76,7 +95,7 @@ public class character_sheet{
         for(int i = 0; i < ch.traitsList.size(); i++){
             model.addElement(ch.traitsList.get(i));
         }
-        list1.setModel(model);
+        list_traits.setModel(model);
     }
 
     public character_sheet() {
@@ -97,6 +116,7 @@ public class character_sheet{
                 setLbl(lbl_wis, Integer.toString(ch.wisdom));
                 setLbl(lbl_con, Integer.toString(ch.constitution));
                 setLbl(lbl_hp, Integer.toString(ch.hp));
+                setLbl(lbl_skill_str_ath, Integer.toString(ch.athletics));
                 setLbl(lbl_name, ch.name);
                 setTraits();
             }
@@ -112,6 +132,18 @@ public class character_sheet{
             }
         });
 
+
+        list_traits.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                Trait traitData = ch.traitsList.get(list_traits.getSelectedIndex());
+                String popupData = traitData.name + "\n" + traitData.description;
+                if(e.getClickCount() == 2){
+                    JOptionPane.showMessageDialog(null, popupData);
+                }
+            }
+        });
 
         okButton.addActionListener(new ActionListener() {
             @Override
@@ -142,11 +174,23 @@ public class character_sheet{
                 }
             }
         });
+        button_add_item.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                additem additemForm = new additem();
+                JFrame jFrame = new JFrame("Additem");
+                jFrame.setContentPane(new additem().panel_additem);
+                jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                jFrame.pack();
+                jFrame.setVisible(true);
+                jFrame.setSize(600, 380);
+            }
+        });
     }
 
 
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         JFrame cs_gui = new JFrame("Character sheet - Name");
         cs_gui.setContentPane(new character_sheet().cs_panel1);
         cs_gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -156,7 +200,7 @@ public class character_sheet{
 
 
 
-    }
+    }*/
 
 
 }

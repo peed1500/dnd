@@ -23,6 +23,8 @@ public class character {
     int wisdom;
     int charisma;
 
+    List<playerClass> playerClassList = new ArrayList<playerClass>();
+
     //Skills
 
     int acrobatics;
@@ -49,6 +51,18 @@ public class character {
     Item items;
     Prof proficiencies;
     List<Trait> traitsList = new ArrayList<Trait>();
+    List<Item> itemList = new ArrayList<Item>();
 
+
+    @Override
+    public String toString() {
+        String coreData = name + "\n";
+        for(int i = 0; i < playerClassList.size(); i++){
+            coreData = coreData + " " + playerClassList.get(i);
+        }
+
+        return coreData;
+
+    }
 
 }
