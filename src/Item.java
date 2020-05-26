@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Item {
+public class Item implements java.io.Serializable {
 
     String name;
     String description;

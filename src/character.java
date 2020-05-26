@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class character {
+public class character implements java.io.Serializable {
 
     //Core stats
 

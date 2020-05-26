@@ -10,7 +10,7 @@ import java.awt.event.MouseEvent;
 public class character_sheet{
 
 
-    private JPanel cs_panel1;
+    public JPanel cs_panel1;
     private JTabbedPane tabbedMenu;
     public JLabel lbl_str;
     private JLabel lbl_dex;
@@ -65,7 +65,11 @@ public class character_sheet{
     private JButton button_weapon_add;
     private JButton button_weapon_remove;
 
-    character ch = new character();
+    public character ch = new character();
+
+    public character_sheet(character loadedCh){
+        ch = loadedCh;
+    }
 
     public void setChValue(){
         ch.charisma = 5;

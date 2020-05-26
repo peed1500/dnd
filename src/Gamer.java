@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Gamer {
+public class Gamer implements java.io.Serializable {
 
     List<character> characterList = new ArrayList<character>();
     List<Item> itemList = new ArrayList<Item>();

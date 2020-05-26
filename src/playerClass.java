@@ -1,4 +1,4 @@
-public class playerClass {
+public class playerClass implements java.io.Serializable {
 
     String name;
 

@@ -1,4 +1,4 @@
-public class Feature {
+public class Feature implements java.io.Serializable {
     String name;
     String description;
     boolean magical;
