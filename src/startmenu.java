@@ -95,10 +95,10 @@ public class startmenu {
             public void actionPerformed(ActionEvent e) {
                 character_sheet ch1 = new character_sheet();
                 JFrame jFrame = new JFrame("Character sheet - Name");   //TODO add get name function
-                jFrame.setContentPane(new character_sheet().cs_panel1);
+                jFrame.setContentPane(ch1.cs_panel1);
                 jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 jFrame.pack();
-                //jFrame(ch1);
+                ch1.setData(loadGamer.characterList.get(0));
                 jFrame.setVisible(true);
                 jFrame.setSize(600, 600);
 
@@ -118,6 +118,15 @@ public class startmenu {
         Gamer loadGamer2 = new Gamer();
         character ch = new character();
         ch.name = "Serilez test";
+        ch.charisma = 6;
+        ch.constitution = 5;
+        ch.dexterity = 5;
+        ch.intelligence = 5;
+        ch.strength = 5;
+        ch.wisdom = 5;
+        ch.size = "Small";
+        ch.hp = 50;
+        ch.athletics = 13;
         String filename2 = "file.ser";
         loadGamer2.characterList.add(ch);
         // Serialization

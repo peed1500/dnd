@@ -1,13 +1,14 @@
 import javax.swing.*;
 import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 
-public class character_sheet{
+public class character_sheet {
 
 
     public JPanel cs_panel1;
@@ -67,7 +68,7 @@ public class character_sheet{
 
     public character ch = new character();
 
-    public character_sheet(character loadedCh){
+    public void setData(character loadedCh){
         ch = loadedCh;
     }
 
@@ -112,7 +113,7 @@ public class character_sheet{
         cs_panel1.addAncestorListener(new AncestorListener() {
             @Override
             public void ancestorAdded(AncestorEvent ancestorEvent) {
-                setChValue();
+                //setChValue();
                 setLbl(lbl_str, Integer.toString(ch.strength));
                 setLbl(lbl_char, Integer.toString(ch.charisma));
                 setLbl(lbl_dex, Integer.toString(ch.dexterity));
