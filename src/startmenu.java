@@ -98,7 +98,7 @@ public class startmenu {
                 jFrame.setContentPane(ch1.cs_panel1);
                 jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 jFrame.pack();
-                ch1.setData(loadGamer.characterList.get(0));
+                ch1.setData(loadGamer.characterList.get(0));    //TODO get character from list
                 jFrame.setVisible(true);
                 jFrame.setSize(600, 600);
 

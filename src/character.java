@@ -52,7 +52,7 @@ public class character implements java.io.Serializable {
     Prof proficiencies;
     List<Trait> traitsList = new ArrayList<Trait>();
     List<Item> itemList = new ArrayList<Item>();
-
+    List<Item> myItems = new ArrayList<Item>();
 
     @Override
     public String toString() {

@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class character_sheet {
@@ -183,12 +185,37 @@ public class character_sheet {
             @Override
             public void actionPerformed(ActionEvent e) {
                 additem additemForm = new additem();
+                Item itemtest = new Item();
+                itemtest.name = "Test item";
+                ch.itemList.add(itemtest);
+                ch.myItems.add(itemtest);
                 JFrame jFrame = new JFrame("Additem");
-                jFrame.setContentPane(new additem().panel_additem);
-                jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                additemForm.loadCharacter(ch);
+                jFrame.setContentPane(additemForm.panel_additem);
+                //jFrame.setDefaultCloseOperation(JFrame.);
                 jFrame.pack();
                 jFrame.setVisible(true);
                 jFrame.setSize(600, 380);
+                List<Item> itemList = new ArrayList<Item>();
+                if(jFrame.isVisible() == false){
+                    itemList = additemForm.returnItems();
+                }
+            }
+        });
+        button_armor_add.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                test01 testsak = new test01();
+                testsak.pack();
+                testsak.setVisible(true);
+                testsak.setSize(600, 600);
+                String testText = "";
+
+
+                testText = testsak.getText();
+                DefaultListModel model = new DefaultListModel();
+                model.addElement(testText);
+                list_armor.setModel(model);
             }
         });
     }
