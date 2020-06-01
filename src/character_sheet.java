@@ -67,6 +67,7 @@ public class character_sheet {
     private JButton button_armor_remove;
     private JButton button_weapon_add;
     private JButton button_weapon_remove;
+    private JLabel lbl_ac;
 
     public character ch = new character();
 
@@ -123,8 +124,35 @@ public class character_sheet {
                 setLbl(lbl_wis, Integer.toString(ch.wisdom));
                 setLbl(lbl_con, Integer.toString(ch.constitution));
                 setLbl(lbl_hp, Integer.toString(ch.hp));
-                setLbl(lbl_skill_str_ath, Integer.toString(ch.athletics));
                 setLbl(lbl_name, ch.name);
+
+                //Skills
+                setLbl(lbl_skill_str_ath, Integer.toString(ch.athletics));
+                setLbl(lbl_skill_cha_dec, Integer.toString(ch.deception));
+                setLbl(lbl_skill_cha_int, Integer.toString(ch.intimidation));
+                setLbl(lbl_skill_cha_per, Integer.toString(ch.performance));
+                setLbl(lbl_skill_cha_pers, Integer.toString(ch.persuasion));
+                setLbl(lbl_skill_dex_acr, Integer.toString(ch.acrobatics));
+                setLbl(lbl_skill_dex_soh, Integer.toString(ch.sleight_of_hand));
+                setLbl(lbl_skill_dex_ste, Integer.toString(ch.stealth));
+                setLbl(lbl_skill_int_arc, Integer.toString(ch.arcana));
+                setLbl(lbl_skill_int_his, Integer.toString(ch.history));
+                setLbl(lbl_skill_int_inv, Integer.toString(ch.investigation));
+                setLbl(lbl_skill_int_nat, Integer.toString(ch.nature));
+                setLbl(lbl_skill_int_rel, Integer.toString(ch.religion));
+                setLbl(lbl_skill_wis_ah, Integer.toString(ch.animal_handling));
+                setLbl(lbl_skill_wis_ins, Integer.toString(ch.insight));
+                setLbl(lbl_skill_wis_med, Integer.toString(ch.medicine));
+                setLbl(lbl_skill_wis_per, Integer.toString(ch.persuasion));
+                setLbl(lbl_skill_wis_sur, Integer.toString(ch.survival));
+
+                //Other
+                setLbl(lbl_ac, Integer.toString(ch.ac));
+                setLbl(lbl_initiative, ch.ini);
+                setLbl(lbl_speed, Integer.toString(ch.speed));
+                setLbl(lbl_passive_perception, "14");
+
+
                 setTraits();
             }
 

@@ -117,16 +117,46 @@ public class startmenu {
 
         Gamer loadGamer2 = new Gamer();
         character ch = new character();
-        ch.name = "Serilez test";
-        ch.charisma = 6;
-        ch.constitution = 5;
-        ch.dexterity = 5;
-        ch.intelligence = 5;
-        ch.strength = 5;
-        ch.wisdom = 5;
+        playerClass currentClass = new playerClass();
+        currentClass.name = "Rogue";
+
+        ch.name = "Adam Silver";
+        ch.charisma = 10;
+        ch.constitution = 10;
+        ch.dexterity = 15;
+        ch.intelligence = 15;
+        ch.strength = 10;
+        ch.wisdom = 14;
         ch.size = "Small";
-        ch.hp = 50;
-        ch.athletics = 13;
+        ch.hp = 66;
+        ch.speed = 25;
+        ch.ac = 14;
+        ch.ini = "+2";
+
+        ch.playerClassList.add(currentClass);
+        //Skills
+        ch.acrobatics = 6;
+        ch.animal_handling = 2;
+        ch.arcana = 2;
+        ch.athletics = 0;
+        ch.deception = 4;
+        ch.history = 2;
+        ch.insight = 6;
+        ch.intimidation = 0;
+        ch.investigation = 6;
+        ch.medicine = 2;
+        ch.nature = 2;
+        ch.perception = 6;
+        ch.performance = 0;
+        ch.persuasion = 0;
+        ch.religion = 2;
+        ch.sleight_of_hand = 2;
+        ch.stealth = 6;
+        ch.survival = 2;
+
+        ch.profArray[11] = true;
+        ch.setPassive(ch.wisdom, ch.perception, ch.proficiencies, ch.profArray);
+
         String filename2 = "file.ser";
         loadGamer2.characterList.add(ch);
         // Serialization

@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +23,9 @@ public class character implements java.io.Serializable {
     int intelligence;
     int wisdom;
     int charisma;
+    int ac;
+    int passive_preception;
+    String ini = "0";
 
     List<playerClass> playerClassList = new ArrayList<playerClass>();
 
@@ -49,10 +53,12 @@ public class character implements java.io.Serializable {
     //Other
 
     Item items;
-    Prof proficiencies;
+    int proficiencies;
     List<Trait> traitsList = new ArrayList<Trait>();
     List<Item> itemList = new ArrayList<Item>();
     List<Item> myItems = new ArrayList<Item>();
+    boolean profArray[] = new boolean[18];
+
 
     @Override
     public String toString() {
@@ -63,6 +69,31 @@ public class character implements java.io.Serializable {
 
         return coreData;
 
+    }
+
+    character(){
+        try
+        {
+            passive_preception = setPassive(wisdom, perception, proficiencies, profArray);
+        }
+        catch(Exception ex)
+        {
+            System.out.println("IOException is caught failed to set passive perp");
+        }
+    }
+
+    public int setPassive(int inputWisdom,int inputPerception, int prof ,boolean inputProfArray[]){
+
+        int result;
+
+        if(inputProfArray[11] == true){
+            result = inputWisdom + inputPerception + prof;
+        }
+        else{
+            result = inputWisdom + inputPerception;
+
+        }
+        return result;
     }
 
 }
