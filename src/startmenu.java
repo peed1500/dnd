@@ -104,8 +104,24 @@ public class startmenu {
 
             }
         });
+        createCharacterButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                startCreateCharacter();
+            }
+        });
     }
 
+    public void startCreateCharacter(){
+        createCharacter characterscreen = new createCharacter();
+        JFrame jFrame = new JFrame("Create character");   //TODO add get name function
+        jFrame.setContentPane(characterscreen.panel1);
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.pack();
+        //characterscreen.setData(loadGamer.characterList.get(0));    //TODO get character from list
+        jFrame.setVisible(true);
+        jFrame.setSize(600, 600);
+    }
 
     public static void main(String[] args) {
         JFrame cs_gui = new JFrame("Character sheet - Name");
