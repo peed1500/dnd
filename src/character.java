@@ -96,4 +96,12 @@ public class character implements java.io.Serializable {
         return result;
     }
 
+    public String getClasses(){
+        String result = "";
+        for(int i = 0; i < playerClassList.size(); i++){
+            result = result + playerClassList.get(i);
+        }
+        return result;
+    }
+
 }

@@ -68,6 +68,7 @@ public class character_sheet {
     private JButton button_weapon_add;
     private JButton button_weapon_remove;
     private JLabel lbl_ac;
+    private JLabel lbl_class;
 
     public character ch = new character();
 
@@ -125,6 +126,7 @@ public class character_sheet {
                 setLbl(lbl_con, Integer.toString(ch.constitution));
                 setLbl(lbl_hp, Integer.toString(ch.hp));
                 setLbl(lbl_name, ch.name);
+                setLbl(lbl_class, ch.getClasses());
 
                 //Skills
                 setLbl(lbl_skill_str_ath, Integer.toString(ch.athletics));
@@ -143,7 +145,7 @@ public class character_sheet {
                 setLbl(lbl_skill_wis_ah, Integer.toString(ch.animal_handling));
                 setLbl(lbl_skill_wis_ins, Integer.toString(ch.insight));
                 setLbl(lbl_skill_wis_med, Integer.toString(ch.medicine));
-                setLbl(lbl_skill_wis_per, Integer.toString(ch.persuasion));
+                setLbl(lbl_skill_wis_per, Integer.toString(ch.perception));
                 setLbl(lbl_skill_wis_sur, Integer.toString(ch.survival));
 
                 //Other
