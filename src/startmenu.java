@@ -116,11 +116,44 @@ public class startmenu {
         createCharacter characterscreen = new createCharacter();
         JFrame jFrame = new JFrame("Create character");   //TODO add get name function
         jFrame.setContentPane(characterscreen.panel1);
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         jFrame.pack();
         //characterscreen.setData(loadGamer.characterList.get(0));    //TODO get character from list
         jFrame.setVisible(true);
-        jFrame.setSize(600, 600);
+        jFrame.setSize(900, 1000);
+
+
+        if(jFrame.isVisible() == false && characterscreen.onOff == false){
+            character newCharacter = new character();
+            newCharacter = characterscreen.returnCharacter();
+            Gamer loadGamer2 = new Gamer();
+            loadGamer2 = loadGamer;
+            loadGamer2.characterList.add(newCharacter);
+            String filename2 = "file.ser";
+
+            // Serialization
+            try
+            {
+                //Saving of object in a file
+                FileOutputStream file = new FileOutputStream(filename2);
+                ObjectOutputStream out = new ObjectOutputStream(file);
+
+                // Method for serialization of object
+                out.writeObject(loadGamer2);
+
+                out.close();
+                file.close();
+
+                System.out.println("Object has been serialized");
+
+                loadFile();
+            }
+
+            catch(IOException ex)
+            {
+                System.out.println("IOException is caught se");
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -176,6 +209,7 @@ public class startmenu {
         String filename2 = "file.ser";
         loadGamer2.characterList.add(ch);
         // Serialization
+        /*
         try
         {
             //Saving of object in a file
@@ -196,7 +230,7 @@ public class startmenu {
         {
             System.out.println("IOException is caught se");
         }
-
+        */
 
 
     }

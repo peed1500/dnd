@@ -227,6 +227,7 @@ public class character_sheet {
                 jFrame.setVisible(true);
                 jFrame.setSize(600, 380);
                 List<Item> itemList = new ArrayList<Item>();
+
                 if(jFrame.isVisible() == false){
                     itemList = additemForm.returnItems();
                 }
