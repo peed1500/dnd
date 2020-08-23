@@ -68,6 +68,7 @@ public class createCharacter {
 
 
     public playerClass testClass = new playerClass();
+    int level = 1;
     public character newCharacter = new character();
     Gamer loadGamer = new Gamer();
     public boolean textfieldEditable = true;
@@ -76,9 +77,9 @@ public class createCharacter {
     public void setProfValue(JTextField textbox, boolean addSub){
         int temp = Integer.parseInt(textbox.getText());
         if(addSub)
-            temp = temp + testClass.classProf.get(testClass.level - 1);
+            temp = temp + level - 1;
         else
-            temp = temp - testClass.classProf.get(testClass.level - 1);
+            temp = temp - level - 1;
         textbox.setText(Integer.toString(temp));
     }
 
@@ -86,8 +87,7 @@ public class createCharacter {
         //Temp test data
 
         testClass.name = "testClass";
-        testClass.level = 1;
-        testClass.classProf.add(2);
+        //testClass.classProf.add(2);
 
 
 
@@ -113,12 +113,12 @@ public class createCharacter {
     public void setValue(int str, int dex, int con, int varint, int wis, int cha
                         , Boolean Bstr, Boolean Bdex, Boolean Bcon, Boolean Bint, Boolean Bwis, Boolean Bcha){
         //Set skill values
-        str = getPlusValue(str, Bstr, testClass.level);
-        dex = getPlusValue(dex, Bdex, testClass.level);
-        con = getPlusValue(con, Bdex, testClass.level);
-        varint = getPlusValue(varint, Bint, testClass.level);
-        wis = getPlusValue(wis, Bwis, testClass.level);
-        cha = getPlusValue(cha, Bcha, testClass.level);
+        str = getPlusValue(str, Bstr, level);
+        dex = getPlusValue(dex, Bdex, level);
+        con = getPlusValue(con, Bdex, level);
+        varint = getPlusValue(varint, Bint, level);
+        wis = getPlusValue(wis, Bwis, level);
+        cha = getPlusValue(cha, Bcha, level);
 
         String Sstr = Integer.toString(str);
         String Sdex = Integer.toString(dex);
@@ -319,12 +319,12 @@ public class createCharacter {
 
                 }
 
-                int str = getPlusValue(Integer.parseInt(textField_Str.getText()), false, testClass.classProf.get(testClass.level - 1));
-                int dex = getPlusValue(Integer.parseInt(textField_Dex.getText()), false, testClass.classProf.get(testClass.level - 1));
-                int con = getPlusValue(Integer.parseInt(textField_Con.getText()), false, testClass.classProf.get(testClass.level - 1));
-                int varint = getPlusValue(Integer.parseInt(textField_Int.getText()), false, testClass.classProf.get(testClass.level - 1));
-                int wis = getPlusValue(Integer.parseInt(textField_Wis.getText()), false, testClass.classProf.get(testClass.level - 1));
-                int cha = getPlusValue(Integer.parseInt(textField_Cha.getText()), false, testClass.classProf.get(testClass.level - 1));
+                int str = getPlusValue(Integer.parseInt(textField_Str.getText()), false, level);
+                int dex = getPlusValue(Integer.parseInt(textField_Dex.getText()), false, level);
+                int con = getPlusValue(Integer.parseInt(textField_Con.getText()), false, level);
+                int varint = getPlusValue(Integer.parseInt(textField_Int.getText()), false, level);
+                int wis = getPlusValue(Integer.parseInt(textField_Wis.getText()), false, level);
+                int cha = getPlusValue(Integer.parseInt(textField_Cha.getText()), false, level);
 
 
 

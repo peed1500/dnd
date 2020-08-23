@@ -17,7 +17,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <grid id="bb924" layout-manager="GridLayoutManager" row-count="7" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="bb924" layout-manager="GridLayoutManager" row-count="6" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <tabbedpane title="Class"/>
@@ -33,7 +33,7 @@
                   <text value="Name of class"/>
                 </properties>
               </component>
-              <component id="f1601" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+              <component id="f1601" class="javax.swing.JTextField" binding="textField_name">
                 <constraints>
                   <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -48,38 +48,23 @@
               </hspacer>
               <component id="bca60" class="javax.swing.JButton" binding="createButton" default-binding="true">
                 <constraints>
-                  <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <text value="Create"/>
                 </properties>
               </component>
-              <hspacer id="7337c">
-                <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="5" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-              </hspacer>
-              <vspacer id="98700">
-                <constraints>
-                  <grid row="3" column="4" row-span="3" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                </constraints>
-              </vspacer>
-              <vspacer id="11c71">
-                <constraints>
-                  <grid row="3" column="1" row-span="2" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                </constraints>
-              </vspacer>
               <component id="9f8c0" class="javax.swing.JButton" binding="canButton" default-binding="true">
                 <constraints>
-                  <grid row="6" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <text value="Can"/>
                 </properties>
               </component>
-              <component id="4708b" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
+              <component id="4708b" class="javax.swing.JTextArea" binding="textArea_description">
                 <constraints>
-                  <grid row="3" column="2" row-span="1" col-span="2" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                  <grid row="4" column="1" row-span="1" col-span="4" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="50"/>
                   </grid>
                 </constraints>
@@ -87,10 +72,37 @@
               </component>
               <component id="6eef0" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <text value="Description"/>
+                </properties>
+              </component>
+              <scrollpane id="f301d">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="8a89a" class="javax.swing.JTable" binding="tableProf">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="5b472" class="javax.swing.JSpinner" binding="spinner1" default-binding="true">
+                <constraints>
+                  <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="229d0" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Level"/>
                 </properties>
               </component>
             </children>
@@ -104,7 +116,7 @@
             <border type="none"/>
             <children/>
           </grid>
-          <grid id="27f1a" layout-manager="GridLayoutManager" row-count="11" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="27f1a" layout-manager="GridLayoutManager" row-count="10" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <tabbedpane title="Spellcaster"/>
@@ -146,7 +158,7 @@
               </component>
               <component id="3f168" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <text value="Spells perp per level"/>
@@ -154,72 +166,77 @@
               </component>
               <component id="7db76" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <text value="Spells slots per level"/>
                 </properties>
               </component>
-              <component id="dfe1a" class="javax.swing.JSpinner" binding="spinner1" default-binding="true">
-                <constraints>
-                  <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="ab423" class="javax.swing.JSpinner" binding="spinner3" default-binding="true">
-                <constraints>
-                  <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="76c24" class="javax.swing.JSpinner" binding="spinner2" default-binding="true">
-                <constraints>
-                  <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties/>
-              </component>
               <hspacer id="317b8">
                 <constraints>
-                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
               </hspacer>
-              <scrollpane id="32384">
-                <constraints>
-                  <grid row="4" column="0" row-span="2" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties/>
-                <border type="none" title="Spells known"/>
-                <children>
-                  <component id="2c854" class="javax.swing.JTable" binding="table1" default-binding="true">
-                    <constraints/>
-                    <properties/>
-                  </component>
-                </children>
-              </scrollpane>
               <scrollpane id="6975">
                 <constraints>
-                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
-                <children/>
+                <children>
+                  <scrollpane id="58ac2">
+                    <constraints/>
+                    <properties/>
+                    <border type="none" title=""/>
+                    <children>
+                      <component id="5a909" class="javax.swing.JTable" binding="table2">
+                        <constraints/>
+                        <properties/>
+                      </component>
+                    </children>
+                  </scrollpane>
+                </children>
               </scrollpane>
               <scrollpane id="25307">
                 <constraints>
-                  <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
-                <children/>
+                <children>
+                  <scrollpane id="ed5bf">
+                    <constraints/>
+                    <properties/>
+                    <border type="none" title=""/>
+                    <children>
+                      <component id="87629" class="javax.swing.JTable" binding="table3">
+                        <constraints/>
+                        <properties/>
+                      </component>
+                    </children>
+                  </scrollpane>
+                </children>
               </scrollpane>
-              <component id="1276" class="javax.swing.JLabel">
+              <scrollpane id="5107">
                 <constraints>
-                  <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties>
-                  <text value="-1 is unlimited "/>
-                </properties>
-              </component>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <scrollpane id="6952">
+                    <constraints/>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="96a22" class="javax.swing.JTable" binding="table1" default-binding="true">
+                        <constraints/>
+                        <properties/>
+                      </component>
+                    </children>
+                  </scrollpane>
+                </children>
+              </scrollpane>
             </children>
           </grid>
         </children>

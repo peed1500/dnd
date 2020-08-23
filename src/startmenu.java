@@ -127,6 +127,7 @@ public class startmenu {
             @Override
             public void actionPerformed(ActionEvent e) {
                 character_sheet ch1 = new character_sheet();
+                ch1.ch = loadGamer.characterList.get(list1.getSelectedIndex());
                 JFrame jFrame = new JFrame("Character sheet - Name");   //TODO add get name function
                 jFrame.setContentPane(ch1.cs_panel1);
                 jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -193,12 +194,7 @@ public class startmenu {
         jFrame.setSize(900, 1000);
 
 
-
-
         loadFile();
-
-
-
     }
 
     public static void main(String[] args) {
@@ -254,7 +250,7 @@ public class startmenu {
         String filename2 = "file.ser";
         loadGamer2.characterList.add(ch);
         // Serialization
-        /*
+
         try
         {
             //Saving of object in a file
@@ -275,7 +271,7 @@ public class startmenu {
         {
             System.out.println("IOException is caught se");
         }
-        */
+
 
 
     }

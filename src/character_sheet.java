@@ -70,6 +70,7 @@ public class character_sheet {
     private JLabel lbl_ac;
     private JLabel lbl_class;
 
+    public Gamer loadgamer = new Gamer();
     public character ch = new character();
 
     public void setData(character loadedCh){

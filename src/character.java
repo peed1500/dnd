@@ -26,6 +26,8 @@ public class character implements java.io.Serializable {
     int ac;
     int passive_preception;
     String ini = "0";
+    List<Integer> level = new ArrayList<>();
+
 
     List<playerClass> playerClassList = new ArrayList<playerClass>();
 
