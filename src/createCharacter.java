@@ -3,6 +3,9 @@ import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.Random;
 
 
@@ -66,6 +69,7 @@ public class createCharacter {
 
     public playerClass testClass = new playerClass();
     public character newCharacter = new character();
+    Gamer loadGamer = new Gamer();
     public boolean textfieldEditable = true;
     public boolean onOff = true;
 
@@ -92,9 +96,9 @@ public class createCharacter {
     public int getPlusValue(int value, Boolean proftrue, int prof){
         if(value == 10){
             if(proftrue){
-                value = value + prof;
+                return prof;
             }
-            return value;
+            return 0;
         }
         else{
             value = value - 10;
@@ -409,6 +413,33 @@ public class createCharacter {
 
         newCharacter.name = textField_Name.getText();
 
+        loadGamer.characterList.add(newCharacter);
+
+        Gamer loadGamer2 = new Gamer();
+        loadGamer2 = loadGamer;
+        String filename2 = "file.ser";
+
+        // Serialization
+        try
+        {
+            //Saving of object in a file
+            FileOutputStream file = new FileOutputStream(filename2);
+            ObjectOutputStream out = new ObjectOutputStream(file);
+
+            // Method for serialization of object
+            out.writeObject(loadGamer2);
+
+            out.close();
+            file.close();
+
+            System.out.println("Object has been serialized");
+
+        }
+
+        catch(IOException ex)
+        {
+            System.out.println("IOException is caught se");
+        }
         onOff = false;
         Window activeWindow = javax.swing.FocusManager.getCurrentManager().getActiveWindow();
         activeWindow.dispose();

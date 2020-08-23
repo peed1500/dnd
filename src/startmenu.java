@@ -3,6 +3,9 @@ import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.*;
 
 public class startmenu {
@@ -15,6 +18,8 @@ public class startmenu {
     private JButton createTraitButton;
     private JButton createClassButton;
     private JButton openCharacterButton;
+    private JButton reloadButton;
+    private JButton removeCharacterButton;
 
     Gamer loadGamer = new Gamer();
     boolean fileloaded = false;
@@ -34,7 +39,7 @@ public class startmenu {
             file.close();
 
             System.out.println("Object has been deserialized ");
-            System.out.println("a = " + loadGamer.characterList.get(0).name);
+            //System.out.println("a = " + loadGamer.characterList.get(0).name);
 
             fileloaded = true;
 
@@ -60,6 +65,34 @@ public class startmenu {
             model.addElement(loadGamer.characterList.get(i));
         }
         list1.setModel(model);
+    }
+
+    public void saveToFile(){
+        Gamer loadGamer2 = new Gamer();
+        loadGamer2 = loadGamer;
+        String filename2 = "file.ser";
+
+        // Serialization
+        try
+        {
+            //Saving of object in a file
+            FileOutputStream file = new FileOutputStream(filename2);
+            ObjectOutputStream out = new ObjectOutputStream(file);
+
+            // Method for serialization of object
+            out.writeObject(loadGamer2);
+
+            out.close();
+            file.close();
+
+            System.out.println("Object has been serialized");
+
+        }
+
+        catch(IOException ex)
+        {
+            System.out.println("IOException is caught se");
+        }
     }
 
     public startmenu(){
@@ -98,7 +131,7 @@ public class startmenu {
                 jFrame.setContentPane(ch1.cs_panel1);
                 jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 jFrame.pack();
-                ch1.setData(loadGamer.characterList.get(0));    //TODO get character from list
+                ch1.setData(loadGamer.characterList.get(list1.getSelectedIndex()));    //TODO get character from list
                 jFrame.setVisible(true);
                 jFrame.setSize(600, 600);
 
@@ -110,10 +143,47 @@ public class startmenu {
                 startCreateCharacter();
             }
         });
+        reloadButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                loadFile();
+            }
+        });
+        removeCharacterButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                int removeAt;
+                removeAt = list1.getSelectedIndex();
+                removeCharacter(removeAt);
+                loadFile();
+            }
+        });
+        createClassButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                createClass createClassScreen = new createClass();
+                JFrame jFrame = new JFrame("Create class");
+                jFrame.setContentPane(createClassScreen.panel1);
+                jFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                jFrame.pack();
+                jFrame.setVisible(true);
+                jFrame.setSize(600, 600);
+            }
+        });
+    }
+
+    public void removeCharacter(int d){
+        loadGamer.characterList.remove(d);
+        for(int i = 0; i < loadGamer.characterList.size(); i++){
+            System.out.println(loadGamer.characterList.get(i).name);
+        }
+        saveToFile();
+
     }
 
     public void startCreateCharacter(){
         createCharacter characterscreen = new createCharacter();
+        characterscreen.loadGamer = loadGamer;
         JFrame jFrame = new JFrame("Create character");   //TODO add get name function
         jFrame.setContentPane(characterscreen.panel1);
         jFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -123,37 +193,12 @@ public class startmenu {
         jFrame.setSize(900, 1000);
 
 
-        if(jFrame.isVisible() == false && characterscreen.onOff == false){
-            character newCharacter = new character();
-            newCharacter = characterscreen.returnCharacter();
-            Gamer loadGamer2 = new Gamer();
-            loadGamer2 = loadGamer;
-            loadGamer2.characterList.add(newCharacter);
-            String filename2 = "file.ser";
 
-            // Serialization
-            try
-            {
-                //Saving of object in a file
-                FileOutputStream file = new FileOutputStream(filename2);
-                ObjectOutputStream out = new ObjectOutputStream(file);
 
-                // Method for serialization of object
-                out.writeObject(loadGamer2);
+        loadFile();
 
-                out.close();
-                file.close();
 
-                System.out.println("Object has been serialized");
 
-                loadFile();
-            }
-
-            catch(IOException ex)
-            {
-                System.out.println("IOException is caught se");
-            }
-        }
     }
 
     public static void main(String[] args) {
