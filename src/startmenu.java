@@ -163,6 +163,7 @@ public class startmenu {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 createClass createClassScreen = new createClass();
+                createClassScreen.loadGamer = loadGamer;
                 JFrame jFrame = new JFrame("Create class");
                 jFrame.setContentPane(createClassScreen.panel1);
                 jFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);

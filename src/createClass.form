@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="471" height="591"/>
+      <xy x="20" y="20" width="471" height="1009"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -54,12 +54,12 @@
                   <text value="Create"/>
                 </properties>
               </component>
-              <component id="9f8c0" class="javax.swing.JButton" binding="canButton" default-binding="true">
+              <component id="9f8c0" class="javax.swing.JButton" binding="cancelButton" default-binding="true">
                 <constraints>
                   <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Can"/>
+                  <text value="Cancel"/>
                 </properties>
               </component>
               <component id="4708b" class="javax.swing.JTextArea" binding="textArea_description">
@@ -105,6 +105,33 @@
                   <text value="Level"/>
                 </properties>
               </component>
+              <component id="573c1" class="javax.swing.JButton" binding="testButton" default-binding="true">
+                <constraints>
+                  <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Test"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="451ee" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="Prof"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="666d9" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children/>
+              </grid>
             </children>
           </grid>
           <grid id="9eed0" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">

@@ -65,6 +65,7 @@ public class createCharacter {
     private JCheckBox proficientCheckBox_Cha;
     private JLabel lbl_test;
     private JButton button_Lock;
+    private JComboBox comboBox1;
 
 
     public playerClass testClass = new playerClass();
@@ -81,6 +82,15 @@ public class createCharacter {
         else
             temp = temp - level - 1;
         textbox.setText(Integer.toString(temp));
+    }
+
+    public void setComboBoxClass(){
+        String[] listData = new String[loadGamer.playerClassList.size()];
+        for(int i = 0; i < loadGamer.playerClassList.size(); i++){
+            listData[i] = loadGamer.playerClassList.get(i).name;
+        }
+        DefaultComboBoxModel model = new DefaultComboBoxModel(listData);
+        comboBox1.setModel(model);
     }
 
     public void testdata(){
@@ -181,7 +191,7 @@ public class createCharacter {
                 setAbilityScoreRandom();
             }
         });
-
+        setComboBoxClass();
         testdata();
         onOff = true;
 

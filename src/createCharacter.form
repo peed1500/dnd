@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="panel1" layout-manager="GridLayoutManager" row-count="37" column-count="8" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="709" height="1184"/>
+      <xy x="20" y="20" width="739" height="1184"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -690,15 +690,6 @@
           <text value="Set abillty score random"/>
         </properties>
       </component>
-      <component id="ad22b" class="javax.swing.JButton" binding="importClassButton" default-binding="true">
-        <constraints>
-          <grid row="15" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <enabled value="false"/>
-          <text value="Import class"/>
-        </properties>
-      </component>
       <vspacer id="1fd6f">
         <constraints>
           <grid row="13" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
@@ -711,6 +702,21 @@
         <properties>
           <text value="Lock abillty score"/>
         </properties>
+      </component>
+      <component id="ad22b" class="javax.swing.JButton" binding="importClassButton" default-binding="true">
+        <constraints>
+          <grid row="15" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <enabled value="true"/>
+          <text value="Import class"/>
+        </properties>
+      </component>
+      <component id="a0903" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+        <constraints>
+          <grid row="15" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
       </component>
     </children>
   </grid>

@@ -8,6 +8,9 @@ public class playerClass implements java.io.Serializable {
     //int level = 1;
     //int knownspells = 0;
 
+    Boolean spellcaster = false;
+    Boolean prepspellsBool = false;
+    Boolean spellsknownBool = false;
     List<Integer[]> knownspells = new ArrayList<>();
     List<Integer[]> prepspells = new ArrayList<>();
     List<Integer[]> spellsperlevel = new ArrayList<>();
