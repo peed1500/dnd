@@ -69,10 +69,20 @@ public class character_sheet {
     private JButton button_weapon_remove;
     private JLabel lbl_ac;
     private JLabel lbl_class;
+    private JList list_spellsKown;
+    private JList list_spellsPrep;
+    private JButton addButton_known;
+    private JButton removeButton_known;
+    private JButton useButton_spell;
+    private JLabel lbl_nameSpell;
+    private JLabel lbl_dmgSpell;
+    private JLabel lbl_typeSpell;
+    private JLabel lbl_levelSpell;
+    private JButton importButton;
 
     public Gamer loadgamer = new Gamer();
     public character ch = new character();
-
+    DefaultListModel spellsprep = new DefaultListModel();
     public void setData(character loadedCh){
         ch = loadedCh;
     }
@@ -106,6 +116,34 @@ public class character_sheet {
             model.addElement(ch.traitsList.get(i));
         }
         list_traits.setModel(model);
+    }
+
+    public void setSpells(){
+        spell newSpell = new spell();
+        newSpell.name = "Fireball";
+        newSpell.level = 3;
+        newSpell.type = "Fire";
+        newSpell.range = 150;
+        newSpell.blast = true;
+        newSpell.blastRange = 20;
+        newSpell.dmg = "8d6";
+        ch.spells.add(newSpell);
+
+        spell newSpell2 = new spell();
+        newSpell2.name = "Chill Touch";
+        newSpell2.level = 0;
+        newSpell2.type = "Ice";
+        newSpell2.range = 120;
+        newSpell2.blast = false;
+        newSpell2.blastRange = 0;
+        newSpell2.dmg = "1d8";
+        ch.spells.add(newSpell2);
+
+        DefaultListModel model = new DefaultListModel();
+        for(int i = 0; i < ch.spells.size(); i++){
+            model.addElement(ch.spells.get(i));
+        }
+        list_spellsKown.setModel(model);
     }
 
     public character_sheet() {
@@ -157,6 +195,7 @@ public class character_sheet {
 
 
                 setTraits();
+                setSpells();
             }
 
             @Override
@@ -248,6 +287,29 @@ public class character_sheet {
                 DefaultListModel model = new DefaultListModel();
                 model.addElement(testText);
                 list_armor.setModel(model);
+            }
+        });
+        addButton_known.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                for(int i = 0; i < ch.spells.size(); i++){
+                    if(list_spellsKown.getSelectedIndex() == i){
+                        String temp = ch.spells.get(i).getShort();
+                        spellsprep.addElement(temp);
+                    }
+                }
+                list_spellsPrep.setModel(spellsprep);
+            }
+        });
+        removeButton_known.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                ch.spells.remove(list_spellsKown.getSelectedIndex());
+                DefaultListModel model = new DefaultListModel();
+                for(int i = 0; i < ch.spells.size(); i++){
+                    model.addElement(ch.spells);
+                }
+                list_spellsKown.setModel(model);
             }
         });
     }

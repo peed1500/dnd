@@ -30,7 +30,7 @@ public class character implements java.io.Serializable {
 
 
     List<playerClass> playerClassList = new ArrayList<playerClass>();
-
+    List<spell> spells = new ArrayList<spell>();
     //Skills
 
     int acrobatics;
