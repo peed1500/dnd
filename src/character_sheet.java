@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,6 +85,7 @@ public class character_sheet {
     public Gamer loadgamer = new Gamer();
     public character ch = new character();
     DefaultListModel spellsprep = new DefaultListModel();
+    DefaultListModel spellkown = new DefaultListModel();
     public void setData(character loadedCh){
         ch = loadedCh;
     }
@@ -139,11 +142,11 @@ public class character_sheet {
         newSpell2.dmg = "1d8";
         ch.spells.add(newSpell2);
 
-        DefaultListModel model = new DefaultListModel();
+
         for(int i = 0; i < ch.spells.size(); i++){
-            model.addElement(ch.spells.get(i));
+            spellkown.addElement(ch.spells.get(i));
         }
-        list_spellsKown.setModel(model);
+        list_spellsKown.setModel(spellkown);
     }
 
     public character_sheet() {
@@ -305,11 +308,34 @@ public class character_sheet {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 ch.spells.remove(list_spellsKown.getSelectedIndex());
-                DefaultListModel model = new DefaultListModel();
+                DefaultListModel spellkown = null;
                 for(int i = 0; i < ch.spells.size(); i++){
-                    model.addElement(ch.spells);
+                    spellkown.addElement(ch.spells);
                 }
-                list_spellsKown.setModel(model);
+                list_spellsKown.setModel(spellkown);
+            }
+        });
+        importButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                spell newSpell = new spell();
+                newSpell.name = "Test spell import";
+                newSpell.dmg = "1d4";
+                newSpell.level = 20;
+                newSpell.range = 30;
+                newSpell.blast = false;
+                newSpell.blastRange = 0;
+                newSpell.description = "This is a test.";
+                spellkown.addElement(newSpell);
+                list_spellsKown.setModel(spellkown);
+            }
+        });
+        list_spellsPrep.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent propertyChangeEvent) {
+                spell loadspell = new spell();
+                loadspell = (spell) spellsprep.getElementAt(list_spellsPrep.getSelectedIndex());
+                lbl_dmgSpell.setText(loadspell.dmg);
             }
         });
     }

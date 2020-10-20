@@ -2,7 +2,7 @@ public class spell {
     String name;
     String dmg;
     String type;
-    int description;
+    String description;
     int level;
     int range;
     Boolean blast = false;
