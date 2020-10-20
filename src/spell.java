@@ -22,4 +22,8 @@ public class spell {
     public String getShort(){
         return "Level: " + level + ", Spell:" + name + ", Damage: " + dmg;
     }
+
+    public String getName(){
+        return name;
+    }
 }

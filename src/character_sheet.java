@@ -1,6 +1,8 @@
 import javax.swing.*;
 import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -81,11 +83,16 @@ public class character_sheet {
     private JLabel lbl_typeSpell;
     private JLabel lbl_levelSpell;
     private JButton importButton;
+    private JButton addButton;
+    private JButton removeButton;
+    private JButton saveButton;
+    private JList list1;
+    private JTextArea textArea1;
 
     public Gamer loadgamer = new Gamer();
     public character ch = new character();
-    DefaultListModel spellsprep = new DefaultListModel();
-    DefaultListModel spellkown = new DefaultListModel();
+    public DefaultListModel spellsprep = new DefaultListModel();
+    public DefaultListModel spellkown = new DefaultListModel();
     public void setData(character loadedCh){
         ch = loadedCh;
     }
@@ -333,15 +340,57 @@ public class character_sheet {
         list_spellsPrep.addPropertyChangeListener(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent propertyChangeEvent) {
-                spell loadspell = new spell();
-                loadspell = (spell) spellsprep.getElementAt(list_spellsPrep.getSelectedIndex());
-                lbl_dmgSpell.setText(loadspell.dmg);
+
+            }
+        });
+        list_spellsPrep.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent listSelectionEvent) {
+                spell newSpell = new spell();
+                Object item = spellsprep.getElementAt(list_spellsPrep.getSelectedIndex());
+                newSpell = returnSpell(item.toString());
+                lbl_nameSpell.setText(newSpell.name);
+                lbl_dmgSpell.setText(newSpell.dmg);
+                lbl_typeSpell.setText(newSpell.type);
+                lbl_levelSpell.setText(String.valueOf(newSpell.level));
+
             }
         });
     }
 
 
+    public spell returnSpell(String input){
+        spell newSpell = new spell();
+        input = input.replaceAll("\\s+","");
+        String[] temp = input.split(",");
 
+        for(int i = 0; i < temp.length; i++){
+            int startIndex = temp[i].indexOf(":");
+            int endIndex = temp[i].length();
+            int bStartIndex = 0;
+            int bEndIndex = startIndex;
+            String start = temp[i].substring(bStartIndex, bEndIndex);
+            String end = temp[i].substring(startIndex+1, endIndex);
+            if(start.equals("Level")){
+                newSpell.level = Integer.parseInt(end);
+            }
+            else if(start.equals("Damage")){
+                newSpell.dmg = end;
+            }
+            else if(start.equals("DamageType")){
+                newSpell.type = end;
+            }
+            else if(start.equals("Range")){
+                newSpell.range = Integer.parseInt(end);
+            }
+            else if(start.equals("Spell")){
+                newSpell.name = end;
+            }
+            
+        }
+        return newSpell;
+
+    }
     /*public static void main(String[] args) {
         JFrame cs_gui = new JFrame("Character sheet - Name");
         cs_gui.setContentPane(new character_sheet().cs_panel1);
